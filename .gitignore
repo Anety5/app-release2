@@ -1,0 +1,27 @@
+# Android Keystore Security
+keystore.jks
+keystore.p12
+release.keystore
+*.keystore
+
+# Gradle Properties (contains keystore passwords)
+gradle.properties
+local.properties
+
+# Build outputs
+build/
+.gradle/
+*.apk
+*.aab
+
+# Android Studio
+.idea/
+*.iml
+.externalNativeBuild/
+.cxx/
+
+# Temporary files
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db

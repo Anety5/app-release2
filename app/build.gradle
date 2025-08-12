@@ -1,0 +1,85 @@
+plugins {
+    id "com.android.application"
+    id "org.jetbrains.kotlin.android"
+}
+
+android {
+    namespace "com.somefitnessmethod.healthconnect"
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.somefitnessmethod.healthconnect"
+        minSdk 26
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = "17"
+    }
+
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
+
+    // Only use release signing if keys exist in gradle.properties
+    def haveKeystoreProps =
+            project.hasProperty("MYAPP_UPLOAD_STORE_FILE") &&
+            project.hasProperty("MYAPP_UPLOAD_KEY_ALIAS") &&
+            project.hasProperty("MYAPP_UPLOAD_STORE_PASSWORD") &&
+            project.hasProperty("MYAPP_UPLOAD_KEY_PASSWORD")
+
+    signingConfigs {
+        if (haveKeystoreProps) {
+            release {
+                storeFile file(MYAPP_UPLOAD_STORE_FILE)
+                storePassword MYAPP_UPLOAD_STORE_PASSWORD
+                keyAlias MYAPP_UPLOAD_KEY_ALIAS
+                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+            }
+        }
+    }
+
+    buildTypes {
+        debug { }
+        release {
+            if (haveKeystoreProps) {
+                signingConfig signingConfigs.release
+            }
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+}
+
+dependencies {
+    // AndroidX core + UI
+    implementation "androidx.core:core-ktx:1.13.1"
+    implementation "androidx.appcompat:appcompat:1.7.0"
+    implementation "com.google.android.material:material:1.12.0"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+
+    // Health Connect (use an existing version)
+    implementation "androidx.health.connect:connect-client:1.1.0-rc02"
+    // If APIs don't match your code, you can fall back to:
+    // implementation "androidx.health.connect:connect-client:1.1.0-alpha11"
+
+    // Lifecycle / Activity / Fragment
+    implementation "androidx.activity:activity-ktx:1.9.0"
+    implementation "androidx.fragment:fragment-ktx:1.6.2"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.4"
+
+    // Coroutines
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1"
+
+    // Tracing (optional)
+    implementation "androidx.tracing:tracing-ktx:1.1.0"
+}

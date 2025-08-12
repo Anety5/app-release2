@@ -1,0 +1,41 @@
+# Meditation Audio Resources
+
+## Available Audio Files
+
+### Nature Sounds
+- Ocean Waves (10 minutes) - Gentle ocean sounds for relaxation
+- Forest Ambiance (15 minutes) - Bird songs and rustling leaves
+- Rain Sounds (20 minutes) - Soft rainfall for sleep
+- Mountain Stream (12 minutes) - Flowing water sounds
+
+### Guided Meditations
+- Breathing Meditation (5 minutes) - Basic breath awareness
+- Body Scan (10 minutes) - Progressive relaxation
+- Loving Kindness (8 minutes) - Compassion meditation
+- Mindfulness Bell (Various) - Meditation timers
+
+### Binaural Beats
+- Alpha Waves (30 minutes) - 8-12 Hz for relaxation
+- Theta Waves (45 minutes) - 4-8 Hz for deep meditation
+- Delta Waves (60 minutes) - 0.5-4 Hz for sleep
+
+### Breathing Exercises
+- 4-7-8 Breathing (5 minutes) - Guided anxiety relief
+- Box Breathing (10 minutes) - Military stress technique
+- Coherent Breathing (15 minutes) - 5-5 rhythm
+
+## Usage Instructions
+1. Find a quiet, comfortable space
+2. Use headphones for best experience
+3. Adjust volume to comfortable level
+4. Focus on the audio guidance
+5. Practice regularly for best results
+
+## Benefits
+- Reduces stress and anxiety
+- Improves sleep quality
+- Enhances focus and concentration
+- Promotes emotional well-being
+- Supports mindfulness practice
+
+Note: These are sample audio resources. In a full implementation, actual audio files would be stored here.

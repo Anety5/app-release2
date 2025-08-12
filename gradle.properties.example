@@ -1,0 +1,21 @@
+# Example gradle.properties file for S.O.M.E Health Connect keystore configuration
+# Copy this file to gradle.properties and update with your actual keystore details
+
+# Keystore Configuration (Update these values)
+SOME_STORE_FILE=../keystore/some-fitness-release.jks
+SOME_STORE_PASSWORD=your_keystore_password_here
+SOME_KEY_ALIAS=some-fitness-key
+SOME_KEY_PASSWORD=your_key_password_here
+
+# Android Gradle Plugin settings
+android.useAndroidX=true
+android.enableJetifier=true
+
+# Gradle optimizations
+org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
+org.gradle.parallel=true
+org.gradle.configureondemand=true
+org.gradle.caching=true
+
+# Enable R8 full mode for release builds
+android.enableR8.fullMode=true

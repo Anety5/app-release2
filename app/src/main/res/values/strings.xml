@@ -1,0 +1,9 @@
+
+<resources>
+    <string name="app_name">S.O.M.E Method</string>
+    <string name="health_connect_privacy_title">S.O.M.E Health Connect Privacy</string>
+    <string name="close_button">Close</string>
+    <string name="permissions_rationale_title">Health Data Permissions</string>
+    <string name="permissions_rationale_privacy_policy">View Privacy Policy</string>
+    <string name="permissions_rationale_manage_permissions">Manage Permissions</string>
+</resources>

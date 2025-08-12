@@ -1,0 +1,19 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+        // Required for Health Connect (Snapshot - typically not needed for stable/beta)
+        // maven { url 'https://androidx.dev/snapshots/builds/latest/artifacts/repository' }
+    }
+}
+
+rootProject.name = "S.O.M.E. Fitness Method"
+include ':app'

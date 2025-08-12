@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-extraction-rules>
+    <cloud-backup>
+        <!-- Example excludes:
+        <exclude domain="database" path="cache.db" />
+        <exclude domain="file" path="temp/" />
+        -->
+    </cloud-backup>
+    <device-transfer>
+        <!-- Add rules if needed -->
+    </device-transfer>
+</data-extraction-rules>
