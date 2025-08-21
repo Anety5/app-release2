@@ -1,0 +1,118 @@
+.class public final Landroidx/health/platform/client/impl/InsertDataCallback;
+.super Landroidx/health/platform/client/service/IInsertDataCallback$Stub;
+.source "InsertDataCallback.kt"
+
+
+# annotations
+.annotation runtime Lkotlin/Metadata;
+    d1 = {
+        "\u0000.\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0002\u0008\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0008\u0002\n\u0002\u0018\u0002\n\u0000\u0008\u0000\u0018\u00002\u00020\u0001B\u001b\u0012\u0012\u0010\u0002\u001a\u000e\u0012\n\u0012\u0008\u0012\u0004\u0012\u00020\u00050\u00040\u0003\u00a2\u0006\u0004\u0008\u0006\u0010\u0007J\u0010\u0010\u0008\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\u000bH\u0016J\u0010\u0010\u000c\u001a\u00020\t2\u0006\u0010\r\u001a\u00020\u000eH\u0016R\u001a\u0010\u0002\u001a\u000e\u0012\n\u0012\u0008\u0012\u0004\u0012\u00020\u00050\u00040\u0003X\u0082\u0004\u00a2\u0006\u0002\n\u0000\u00a8\u0006\u000f"
+    }
+    d2 = {
+        "Landroidx/health/platform/client/impl/InsertDataCallback;",
+        "Landroidx/health/platform/client/service/IInsertDataCallback$Stub;",
+        "resultFuture",
+        "Lcom/google/common/util/concurrent/SettableFuture;",
+        "",
+        "",
+        "<init>",
+        "(Lcom/google/common/util/concurrent/SettableFuture;)V",
+        "onSuccess",
+        "",
+        "response",
+        "Landroidx/health/platform/client/response/InsertDataResponse;",
+        "onError",
+        "error",
+        "Landroidx/health/platform/client/error/ErrorStatus;",
+        "connect-client_release"
+    }
+    k = 0x1
+    mv = {
+        0x2,
+        0x0,
+        0x0
+    }
+    xi = 0x30
+.end annotation
+
+
+# instance fields
+.field private final resultFuture:Lcom/google/common/util/concurrent/SettableFuture;
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "Lcom/google/common/util/concurrent/SettableFuture<",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;>;"
+        }
+    .end annotation
+.end field
+
+
+# direct methods
+.method public constructor <init>(Lcom/google/common/util/concurrent/SettableFuture;)V
+    .registers 3
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "(",
+            "Lcom/google/common/util/concurrent/SettableFuture<",
+            "Ljava/util/List<",
+            "Ljava/lang/String;",
+            ">;>;)V"
+        }
+    .end annotation
+
+    const-string v0, "resultFuture"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 26
+    invoke-direct {p0}, Landroidx/health/platform/client/service/IInsertDataCallback$Stub;-><init>()V
+
+    .line 25
+    iput-object p1, p0, Landroidx/health/platform/client/impl/InsertDataCallback;->resultFuture:Lcom/google/common/util/concurrent/SettableFuture;
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public onError(Landroidx/health/platform/client/error/ErrorStatus;)V
+    .registers 3
+
+    const-string v0, "error"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 33
+    iget-object v0, p0, Landroidx/health/platform/client/impl/InsertDataCallback;->resultFuture:Lcom/google/common/util/concurrent/SettableFuture;
+
+    invoke-static {p1}, Landroidx/health/platform/client/impl/error/ErrorStatusConverterKt;->toException(Landroidx/health/platform/client/error/ErrorStatus;)Ljava/lang/Exception;
+
+    move-result-object p1
+
+    check-cast p1, Ljava/lang/Throwable;
+
+    invoke-virtual {v0, p1}, Lcom/google/common/util/concurrent/SettableFuture;->setException(Ljava/lang/Throwable;)Z
+
+    return-void
+.end method
+
+.method public onSuccess(Landroidx/health/platform/client/response/InsertDataResponse;)V
+    .registers 3
+
+    const-string v0, "response"
+
+    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+
+    .line 29
+    iget-object v0, p0, Landroidx/health/platform/client/impl/InsertDataCallback;->resultFuture:Lcom/google/common/util/concurrent/SettableFuture;
+
+    invoke-virtual {p1}, Landroidx/health/platform/client/response/InsertDataResponse;->getDataPointUids()Ljava/util/List;
+
+    move-result-object p1
+
+    invoke-virtual {v0, p1}, Lcom/google/common/util/concurrent/SettableFuture;->set(Ljava/lang/Object;)Z
+
+    return-void
+.end method
