@@ -3,18 +3,27 @@
 build/
 */build/
 
-# Local configs
+# Local config
 local.properties
-
-# IDE
-.idea/
 *.iml
 
-# Outputs
-*.apk
-*.ap_
+# Android Studio
+.idea/
+*.ipr
+*.iws
 
-# System
+# Logs
 *.log
+
+# OS files
 .DS_Store
 Thumbs.db
+
+# Keystores
+*.jks
+*.keystore
+
+# APK/Bundle outputs
+*.apk
+*.ap_
+*.aab
