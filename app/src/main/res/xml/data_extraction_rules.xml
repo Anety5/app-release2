@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data-extraction-rules>
     <cloud-backup>
-        <!-- Example excludes:
-        <exclude domain="database" path="cache.db" />
-        <exclude domain="file" path="temp/" />
-        -->
+        <include domain="sharedpref" path="user_prefs.xml"/>
+        <include domain="file" path="important_data/"/>
+        <!-- No database/includes means DBs are excluded -->
     </cloud-backup>
+
     <device-transfer>
-        <!-- Add rules if needed -->
+        <include domain="sharedpref" path="user_prefs.xml"/>
+        <include domain="file" path="important_data/"/>
     </device-transfer>
 </data-extraction-rules>
+
+

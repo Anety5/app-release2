@@ -1,85 +1,87 @@
 plugins {
-    id "com.android.application"
-    id "org.jetbrains.kotlin.android"
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+/**
+ * Load release signing creds from project-root/keystore.properties
+ * (File must define: storeFile, storePassword, keyAlias, keyPassword, storeType=pkcs12)
+ */
+import java.util.Properties
+def keystorePropsFile = rootProject.file("keystore.properties")
+def keystoreProperties = new Properties()
+if (keystorePropsFile.exists()) {
+    keystoreProperties.load(new FileInputStream(keystorePropsFile))
 }
 
 android {
-    namespace "com.somefitnessmethod.healthconnect"
-    compileSdk 34
+    namespace = "com.somefitnessmethod.healthconnect"
+    compileSdk = 36   // If you don't have API 36 installed yet, set this to 34 temporarily.
 
     defaultConfig {
-        applicationId "com.somefitnessmethod.healthconnect"
-        minSdk 26
-        targetSdk 34
-        versionCode 1
-        versionName "1.0"
-        vectorDrawables.useSupportLibrary = true
+        applicationId = "com.somefitnessmethod.healthconnect"
+        minSdk = 26
+        targetSdk = 34
+        versionCode = 1
+        versionName = "1.0"
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+        coreLibraryDesugaringEnabled = true
     }
+
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = '17'
     }
 
     buildFeatures {
-        viewBinding true
-        dataBinding true
+        viewBinding = true
     }
 
-    // Only use release signing if keys exist in gradle.properties
-    def haveKeystoreProps =
-            project.hasProperty("MYAPP_UPLOAD_STORE_FILE") &&
-            project.hasProperty("MYAPP_UPLOAD_KEY_ALIAS") &&
-            project.hasProperty("MYAPP_UPLOAD_STORE_PASSWORD") &&
-            project.hasProperty("MYAPP_UPLOAD_KEY_PASSWORD")
-
     signingConfigs {
-        if (haveKeystoreProps) {
-            release {
-                storeFile file(MYAPP_UPLOAD_STORE_FILE)
-                storePassword MYAPP_UPLOAD_STORE_PASSWORD
-                keyAlias MYAPP_UPLOAD_KEY_ALIAS
-                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+        release {
+            // Only set fields if keystore.properties exists (prevents build failure on clean envs)
+            if (keystorePropsFile.exists()) {
+                storeFile     = rootProject.file(keystoreProperties['storeFile'])
+                storePassword = keystoreProperties['storePassword']
+                keyAlias      = keystoreProperties['keyAlias']      // e.g., somefitness
+                keyPassword   = keystoreProperties['keyPassword']
+                if (keystoreProperties['storeType']) {
+                    storeType = keystoreProperties['storeType']     // pkcs12
+                }
             }
         }
     }
 
     buildTypes {
-        debug { }
         release {
-            if (haveKeystoreProps) {
+            // Only apply signing if props file is present
+            if (keystorePropsFile.exists()) {
                 signingConfig signingConfigs.release
             }
-            minifyEnabled true
-            shrinkResources true
-            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+            // Toggle these as needed (start simple)
+            minifyEnabled false
+            shrinkResources false
+            // If you enable minify later, also add proguard files:
+            // proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            // debug uses auto-generated debug keystore
         }
     }
 }
 
 dependencies {
-    // AndroidX core + UI
-    implementation "androidx.core:core-ktx:1.13.1"
-    implementation "androidx.appcompat:appcompat:1.7.0"
-    implementation "com.google.android.material:material:1.12.0"
-    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+    implementation 'androidx.health.connect:connect-client:1.1.0-rc03'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'
 
-    // Health Connect (use an existing version)
-    implementation "androidx.health.connect:connect-client:1.1.0-rc02"
-    // If APIs don't match your code, you can fall back to:
-    // implementation "androidx.health.connect:connect-client:1.1.0-alpha11"
+    implementation 'androidx.core:core-ktx:1.13.1'
 
-    // Lifecycle / Activity / Fragment
-    implementation "androidx.activity:activity-ktx:1.9.0"
-    implementation "androidx.fragment:fragment-ktx:1.6.2"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.8.4"
-
-    // Coroutines
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1"
-
-    // Tracing (optional)
-    implementation "androidx.tracing:tracing-ktx:1.1.0"
+    // AppCompat/Material
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
 }
+

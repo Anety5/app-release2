@@ -12,15 +12,23 @@ import kotlinx.coroutines.withContext
 import java.time.Instant
 import java.time.temporal.ChronoUnit
 
-/**
- * Helper class for Health Connect operations
- */
 class HealthConnectHelper(private val context: Context) {
 
-    private val healthConnectClient: HealthConnectClient =
+    // Only create the client when actually used (prevents init crash if HC isn't available)
+    private val healthConnectClient: HealthConnectClient by lazy {
         HealthConnectClient.getOrCreate(context)
+    }
+
+    // Availability check that works across versions
+    val isAvailable: Boolean = try {
+        HealthConnectClient.getOrCreate(context)  // will throw if not available
+        true
+    } catch (_: Exception) {
+        false
+    }
 
     suspend fun getStepsData(days: Int = 7): List<StepsRecord> = withContext(Dispatchers.IO) {
+        if (!isAvailable) return@withContext emptyList()
         try {
             val end = Instant.now()
             val start = end.minus(days.toLong(), ChronoUnit.DAYS)
@@ -33,6 +41,7 @@ class HealthConnectHelper(private val context: Context) {
     }
 
     suspend fun getHeartRateData(days: Int = 7): List<HeartRateRecord> = withContext(Dispatchers.IO) {
+        if (!isAvailable) return@withContext emptyList()
         try {
             val end = Instant.now()
             val start = end.minus(days.toLong(), ChronoUnit.DAYS)
@@ -45,6 +54,7 @@ class HealthConnectHelper(private val context: Context) {
     }
 
     suspend fun getSleepData(days: Int = 7): List<SleepSessionRecord> = withContext(Dispatchers.IO) {
+        if (!isAvailable) return@withContext emptyList()
         try {
             val end = Instant.now()
             val start = end.minus(days.toLong(), ChronoUnit.DAYS)

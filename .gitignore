@@ -1,27 +1,68 @@
-# Android Keystore Security
-keystore.jks
-keystore.p12
-release.keystore
-*.keystore
-
-# Gradle Properties (contains keystore passwords)
-gradle.properties
-local.properties
-
-# Build outputs
-build/
+# ================================================
+# Gradle
+# ================================================
 .gradle/
-*.apk
-*.aab
+build/
+*/build/
+local.properties
+.gradle-wrapper.log
 
-# Android Studio
+# ================================================
+# IDE files
+# ================================================
 .idea/
 *.iml
-.externalNativeBuild/
-.cxx/
+*.ipr
+*.iws
+.vscode/
 
-# Temporary files
-*.tmp
-*.temp
+# ================================================
+# Keystore & credentials
+# ================================================
+# Keystores (keep outside repo if possible)
+*.jks
+*.keystore
+*.p12
+
+# Properties files containing secrets
+gradle.properties
+keystore.properties
+android/key.properties
+
+# ================================================
+# Android build outputs
+# ================================================
+app/release/
+app/debug/
+outputs/
+captures/
+
+# Native build
+.cxx/
+.externalNativeBuild/
+
+# ================================================
+# Flutter / Dart
+# ================================================
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+pubspec.lock
+.melos_tool/
+build/
+
+# ================================================
+# Node / JavaScript (if using npm/yarn in your app)
+# ================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ================================================
+# OS-specific
+# ================================================
 .DS_Store
 Thumbs.db
+desktop.ini

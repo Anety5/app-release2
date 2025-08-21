@@ -1,67 +1,94 @@
 package com.somefitnessmethod.healthconnect
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.webkit.WebChromeClient
+import android.webkit.WebResourceRequest
+import android.webkit.WebSettings
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
-import androidx.health.connect.client.HealthConnectClient
-import androidx.health.connect.client.PermissionController
-import androidx.health.connect.client.permission.HealthPermission
-import androidx.health.connect.client.records.HeartRateRecord
-import androidx.health.connect.client.records.SleepSessionRecord
-import androidx.health.connect.client.records.StepsRecord
+import com.somefitnessmethod.premium.PremiumTeaserActivity
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var webView: WebView
-    private lateinit var helper: HealthConnectHelper
-
-    private val requestHcPermissions = registerForActivityResult(
-        PermissionController.createRequestPermissionResultContract()
-    ) { /* granted: Set<String> — you can refresh UI here if needed */ }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        helper = HealthConnectHelper(this)
+        val webView = findViewById<WebView>(R.id.webView)
 
-        // Request Health Connect permissions if available
-        requestPermissionsIfNeeded()
+        // Sensible defaults for a modern web app
+        with(webView.settings) {
+            javaScriptEnabled = true
+            domStorageEnabled = true
+            databaseEnabled = true
+            loadsImagesAutomatically = true
+            cacheMode = WebSettings.LOAD_DEFAULT
+            mixedContentMode = WebSettings.MIXED_CONTENT_COMPATIBILITY_MODE
+            allowFileAccess = false         // safer defaults
+            allowContentAccess = true
+            userAgentString = userAgentString + " SOME-Android"
+        }
 
-        webView = findViewById(R.id.webView) // make sure your layout id is webView
-        webView.settings.javaScriptEnabled = true
-        webView.settings.domStorageEnabled = true
-        webView.webViewClient = WebViewClient()
+        // Intercept app://premium and open native PremiumTeaserActivity
+        webView.webViewClient = object : WebViewClient() {
 
-        // Attach JS bridge
-        webView.addJavascriptInterface(HealthConnectJsBridge(webView, helper), "HealthConnect")
+            // API 24+
+            override fun shouldOverrideUrlLoading(
+                view: WebView,
+                request: WebResourceRequest
+            ): Boolean {
+                val uri = request.url
+                if (handleAppLink(uri)) return true
 
-        // Load your web app (pick the one you actually have)
-        // webView.loadUrl("file:///android_asset/index.html")
-        webView.loadUrl("file:///android_asset/public/index.html")
-    }
+                // Let http/https/file continue in WebView; block other schemes
+                val scheme = uri.scheme ?: ""
+                if (scheme != "http" && scheme != "https" && scheme != "file") return true
+                return false
+            }
 
-    private fun requestPermissionsIfNeeded() {
-        val status = HealthConnectClient.getSdkStatus(
-            this, "com.google.android.apps.healthdata"
-        )
-        if (status != HealthConnectClient.SDK_AVAILABLE) return
+            // Back-compat for API < 24
+            @Suppress("DEPRECATION")
+            override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
+                val uri = Uri.parse(url)
+                if (handleAppLink(uri)) return true
 
-        val permissions = setOf(
-            HealthPermission.getReadPermission(StepsRecord::class),
-            HealthPermission.getReadPermission(HeartRateRecord::class),
-            HealthPermission.getReadPermission(SleepSessionRecord::class)
-        )
-        requestHcPermissions.launch(permissions)
+                val scheme = uri.scheme ?: ""
+                if (scheme != "http" && scheme != "https" && scheme != "file") return true
+                return false
+            }
+
+            private fun handleAppLink(uri: Uri): Boolean {
+                // Intercept: app://premium
+                if (uri.scheme == "app" && uri.host == "premium") {
+                    startActivity(Intent(this@MainActivity, PremiumTeaserActivity::class.java))
+                    return true
+                }
+                return false
+            }
+        }
+
+        webView.webChromeClient = WebChromeClient()
+
+        // Load your app (local asset by default; switch to your URL if needed)
+        val url = getString(R.string.web_url) // defined in strings.xml
+        webView.loadUrl(url)
+
+        // Optional: JS bridge (leave commented if not using yet)
+        // webView.addJavascriptInterface(
+        //     HealthConnectJsBridge(this, HealthConnectHelper(this)),
+        //     "HealthConnect"
+        // )
     }
 
     override fun onBackPressed() {
-        if (this::webView.isInitialized && webView.canGoBack()) {
+        val webView = findViewById<WebView>(R.id.webView)
+        if (webView.canGoBack()) {
             webView.goBack()
         } else {
             super.onBackPressed()
         }
     }
 }
-

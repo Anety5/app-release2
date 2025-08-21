@@ -4,23 +4,20 @@
     <!-- Network for WebView / remote content -->
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <!-- Health Connect: declare ONLY what you actually read/write.
-         Add more later if needed. -->
+    <!-- Health Connect: declare only what you read -->
     <uses-permission android:name="android.permission.health.READ_STEPS" />
     <uses-permission android:name="android.permission.health.READ_HEART_RATE" />
     <uses-permission android:name="android.permission.health.READ_SLEEP" />
 
-    <!-- (Optional) Location — remove if unused -->
-    <!-- <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> -->
-    <!-- <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> -->
-
     <application
         android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_rules"
+        android:dataExtractionRules="@xml/data_extraction_rules"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.SOMEFitnessMethod">
+        android:theme="@style/Theme.SOME">
 
         <!-- Launcher -->
         <activity
@@ -32,15 +29,15 @@
             </intent-filter>
         </activity>
 
-        <!-- Health Connect permissions rationale -->
+        <!-- Health Connect permissions rationale (internal only) -->
         <activity
             android:name=".PermissionsRationaleActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="androidx.health.ACTION_SHOW_PERMISSIONS_RATIONALE" />
-                <category android:name="android.intent.category.HEALTH_PERMISSIONS" />
-            </intent-filter>
-        </activity>
+            android:exported="false" />
 
+        <!-- ✅ New Premium screen -->
+        <activity
+            android:name="com.somefitnessmethod.premium.PremiumTeaserActivity"
+            android:exported="false"
+            android:label="Premium" />
     </application>
 </manifest>

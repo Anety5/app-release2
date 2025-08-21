@@ -40,7 +40,7 @@ class HealthConnectIntegrationTest {
         Log.i(TAG, "📱 Testing SDK Availability...")
         
         // Test SDK availability check
-        val mockContext = requireContext() // Replace with actual context in real test
+        val mockContext = null // Replace with actual context in real test
         when (HealthConnectClient.getSdkStatus(mockContext)) {
             HealthConnectClient.SDK_AVAILABLE -> {
                 Log.i(TAG, "✅ Health Connect SDK is available")

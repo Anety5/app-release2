@@ -13,11 +13,11 @@
         <item name="colorSecondaryVariant">@color/accent</item>
         <item name="colorOnSecondary">@color/on_secondary</item>
 
-        <!-- Surfaces & backgrounds for night -->
-        <item name="colorSurface">@color/surface_night</item>
-        <item name="android:colorBackground">@color/background_night</item>
-        <item name="colorOnSurface">@color/on_surface_night</item>
-        <item name="colorOnBackground">@color/on_background_night</item>
+        <!-- Darker surfaces & backgrounds -->
+        <item name="colorSurface">@color/on_background</item>
+        <item name="colorBackground">@color/on_background</item>
+        <item name="colorOnSurface">@color/surface</item>
+        <item name="colorOnBackground">@color/surface</item>
 
         <!-- Errors -->
         <item name="colorError">@color/error</item>
@@ -25,12 +25,11 @@
 
         <!-- System bars -->
         <item name="android:statusBarColor">@color/primary_dark</item>
-        <item name="android:navigationBarColor">@color/surface_night</item>
+        <item name="android:navigationBarColor">@color/surface</item>
     </style>
 
     <!-- Alias for manifest reference -->
     <style name="Theme.SOMEFitnessMethod" parent="Theme.SOMEMethod" />
 
 </resources>
-
 

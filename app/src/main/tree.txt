@@ -1,0 +1,158 @@
+Folder PATH listing for volume Windows
+Volume serial number is 2AF4-788F
+C:.
+¦   AndroidManifest.xml
+¦   tree.txt
+¦   
++---assets
+¦   ¦   047130_bright-tibetan-bell-ding-b-note-72289.mp3
+¦   ¦   047130_bright-tibetan-bell-ding-b-note-72289_1753127028419.mp3
+¦   ¦   Anxiety Information Sheet - 08 - Breathing Retraining_1752639607692.pdf
+¦   ¦   Athletic Man Performing Bird-Dog Exercise_1752894342232.png
+¦   ¦   bd8bd0cc-46db-449e-8890-5978d0e7bc0b.png
+¦   ¦   bell-meditation-75335.mp3
+¦   ¦   bg-some-wellness_1753482225758.png
+¦   ¦   blowfish puffed.png
+¦   ¦   breath-in-242641.mp3
+¦   ¦   breath-out-242642.mp3
+¦   ¦   bubble-sound-43207.mp3
+¦   ¦   cartoon-pufferfish.png
+¦   ¦   ChatGPT Image Jul 25, 2025, 11_02_32 AM_1753477366859.png
+¦   ¦   Child's Pose on Navy Yoga Mat_1752566544365.png
+¦   ¦   Cobra Pose on Navy Mat_1752566536080.png
+¦   ¦   deflatedpuffer.png
+¦   ¦   e-flat-tibetan-singing-bowl-struck-38746.mp3
+¦   ¦   Focused Bird-Dog Pose on Yoga Mat_1752894310515.png
+¦   ¦   Focused Wall Squat Workout_1752894218665.png
+¦   ¦   Focused Yoga Practice in Camel Pose_1752566521268.png
+¦   ¦   good-job-blowfish.png
+¦   ¦   healthy_recipes_1752443716866.md
+¦   ¦   health_connect_integration_checklist_1753040448082.md
+¦   ¦   index.html
+¦   ¦   little-whoosh-2-6301.mp3
+¦   ¦   mixkit-classical-1-708.mp3
+¦   ¦   Morning_Exercises_and_Daily_Activities_1752436374591.pdf
+¦   ¦   octopus closed.png
+¦   ¦   octopus pus open.png
+¦   ¦   octopus.png
+¦   ¦   output (1)_1752727480833.png
+¦   ¦   realistic-pufferfish.png
+¦   ¦   Serene Yoga Pose on Blue Mat_1752566488087.png
+¦   ¦   Single Knee-to-Chest Yoga Stretch_1752566476932.png
+¦   ¦   SOME fitness logo 1_1752967200752.png
+¦   ¦   sticker relaxed to the Max.png
+¦   ¦   strength_training_routine_table (1)_1752882321753.png
+¦   ¦   Stretching Focused and Calm_1752566513262.png
+¦   ¦   Wall Push-Up in Minimalist Room_1752894280714.png
+¦   ¦   
+¦   +---assets
+¦   ¦   ¦   bg-mountainswbeach.png
+¦   ¦   ¦   
+¦   ¦   +---audio
+¦   ¦   ¦       meditation-sounds.txt
+¦   ¦   ¦       
+¦   ¦   +---characters
+¦   ¦   ¦       character-info.md
+¦   ¦   ¦       
+¦   ¦   +---exercises
+¦   ¦   ¦       breathing-exercises.md
+¦   ¦   ¦       
+¦   ¦   +---recipes
+¦   ¦   ¦       energy-boost-recipes.md
+¦   ¦   ¦       focus-recipes.md
+¦   ¦   ¦       immune-recipes.md
+¦   ¦   ¦       sample-recipes.md
+¦   ¦   ¦       sleep-recipes.md
+¦   ¦   ¦       stress-relief-recipes.md
+¦   ¦   ¦       
+¦   ¦   +---research
+¦   ¦           wellness-references.md
+¦   ¦           
+¦   +---images
+¦   ¦       moonlight river badge.png
+¦   ¦       nighttime-coast-moon.png
+¦   ¦       README.md
+¦   ¦       tropical-day-coast.png
+¦   ¦       
+¦   +---public
+¦       ¦   047130_bright-tibetan-bell-ding-b-note-72289.mp3
+¦       ¦   bell-meditation-75335.mp3
+¦       ¦   blowfish puffed.png
+¦       ¦   breath-in-242641.mp3
+¦       ¦   breath-out-242642.mp3
+¦       ¦   bubble-sound-43207.mp3
+¦       ¦   cartoon-pufferfish.png
+¦       ¦   deflatedpuffer.png
+¦       ¦   e-flat-tibetan-singing-bowl-struck-38746.mp3
+¦       ¦   good-job-blowfish.png
+¦       ¦   index.html
+¦       ¦   little-whoosh-2-6301.mp3
+¦       ¦   mixkit-classical-1-708.mp3
+¦       ¦   octopus closed.png
+¦       ¦   octopus pus open.png
+¦       ¦   octopus.png
+¦       ¦   realistic-pufferfish.png
+¦       ¦   
+¦       +---assets
+¦           ¦   bg-mountainswbeach.png
+¦           ¦   index-BYKC7t4P.css
+¦           ¦   index-JIknE6ZO.js
+¦           ¦   
+¦           +---audio
+¦                   meditation-sounds.txt
+¦                   
++---java
+¦   +---com
+¦       +---somefitnessmethod
+¦           +---healthconnect
+¦                   HealthConnectHelper.kt
+¦                   HealthConnectJsBridge.kt
+¦                   MainActivity.kt
+¦                   PermissionsRationaleActivity.kt
+¦                   test-health-connect.kt.bak
+¦                   
++---res
+    +---drawable
+    ¦       ic_launcher_foreground.png
+    ¦       
+    +---layout
+    ¦       activity_main.xml
+    ¦       activity_permissions_rationale.xml
+    ¦       
+    +---mipmap-anydpi-v26
+    ¦       ic_launcher.xml
+    ¦       ic_launcher_round.xml
+    ¦       
+    +---mipmap-hdpi
+    ¦       ic_launcher.png
+    ¦       ic_launcher_round.png
+    ¦       
+    +---mipmap-mdpi
+    ¦       ic_launcher.png
+    ¦       ic_launcher_round.png
+    ¦       
+    +---mipmap-xhdpi
+    ¦       ic_launcher.png
+    ¦       ic_launcher_round.png
+    ¦       
+    +---mipmap-xxhdpi
+    ¦       ic_launcher.png
+    ¦       ic_launcher_round.png
+    ¦       
+    +---mipmap-xxxhdpi
+    ¦       ic_launcher.png
+    ¦       ic_launcher_round.png
+    ¦       
+    +---values
+    ¦       colors.xml
+    ¦       ic_launcher_colors.xml
+    ¦       strings.xml
+    ¦       themes.xml
+    ¦       
+    +---values-night
+    ¦       colors.xml
+    ¦       
+    +---xml
+            backup_rules.xml
+            data_extraction_rules.xml
+            

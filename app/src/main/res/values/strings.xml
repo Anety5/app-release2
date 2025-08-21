@@ -1,9 +1,48 @@
-
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- App -->
     <string name="app_name">S.O.M.E Method</string>
-    <string name="health_connect_privacy_title">S.O.M.E Health Connect Privacy</string>
-    <string name="close_button">Close</string>
+
+    <!-- WebView target -->
+    <!-- Local asset (create app/src/main/assets/index.html if you keep this) -->
+    <string name="web_url">file:///android_asset/index.html</string>
+    <!-- If you load a website instead, change to: -->
+    <!-- <string name="web_url">https://your-domain.example/</string> -->
+
+    <!-- Permissions rationale screen -->
     <string name="permissions_rationale_title">Health Data Permissions</string>
     <string name="permissions_rationale_privacy_policy">View Privacy Policy</string>
     <string name="permissions_rationale_manage_permissions">Manage Permissions</string>
+    <string name="close_button">Close</string>
+
+    <!-- Optional alt title used elsewhere -->
+    <string name="health_connect_privacy_title">S.O.M.E Health Connect Privacy</string>
+
+    <!-- Long body text shown in the rationale screen -->
+    <string name="permissions_rationale_body">
+        Why S.O.M.E Method needs access to your health data:\n\n
+        ✓ Heart Rate: Monitor your cardiovascular wellness and exercise intensity\n
+        ✓ Sleep Data: Track sleep quality and duration for better recovery insights\n
+        ✓ Steps &amp; Activity: Record your daily movement and exercise sessions\n
+        ✓ Oxygen Saturation: Assess your breathing and recovery status\n\n
+        Your Privacy is Protected:\n
+        • Data stays on your device unless you choose to sync\n
+        • No data is shared with third parties\n
+        • You control what information is accessed\n
+        • All sync uses encrypted HTTPS connections\n
+        • You can revoke permissions anytime\n\n
+        Benefits:\n
+        • Real health data instead of camera estimates\n
+        • Automatic sync from your fitness trackers and smartwatches\n
+        • Comprehensive wellness tracking across Sleep, Oxygen, Move, Eat\n
+        • Personalized insights based on authentic health metrics
+    </string>
+
+    <!-- Helper messages -->
+    <string name="health_connect_unavailable_title">Health Connect Unavailable</string>
+    <string name="health_connect_unavailable_message">This device doesn’t have Health Connect. Some features will be disabled.</string>
+    <string name="ok">OK</string>
+
+    <!-- Optional: privacy policy URL for the button -->
+    <string name="privacy_policy_url">https://example.com/privacy</string>
 </resources>

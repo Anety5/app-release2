@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <full-backup-content>
-    <!-- Example:
-    <exclude domain="database" path="cache.db" />
-    -->
+    <!-- Example: only include these -->
+    <include domain="sharedpref" path="user_prefs.xml"/>
+    <include domain="file" path="important_data/"/>
 </full-backup-content>
+
+

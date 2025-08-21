@@ -1,33 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Base application theme (light/default) -->
-    <style name="Theme.SOMEMethod" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand -->
+    <!-- Single DayNight theme for the app -->
+    <style name="Theme.SOME" parent="Theme.AppCompat.DayNight.NoActionBar">
         <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryVariant">@color/primary_dark</item>
-        <item name="colorOnPrimary">@color/on_primary</item>
+        <item name="colorPrimaryDark">@color/primary_dark</item>
+        <item name="colorAccent">@color/accent</item>
 
-        <!-- Secondary / accent -->
-        <item name="colorSecondary">@color/accent</item>
-        <item name="colorSecondaryVariant">@color/accent</item>
-        <item name="colorOnSecondary">@color/on_secondary</item>
-
-        <!-- Surfaces & backgrounds -->
-        <item name="colorSurface">@color/surface</item>
-        <item name="android:colorBackground">@color/background</item>
-        <item name="colorOnSurface">@color/on_surface</item>
-        <item name="colorOnBackground">@color/on_background</item>
-
-        <!-- Errors -->
-        <item name="colorError">@color/error</item>
-        <item name="colorOnError">@color/on_error</item>
-
-        <!-- System bars -->
+        <item name="android:windowBackground">@color/background</item>
+        <item name="android:textColorPrimary">@color/on_background</item>
+        <item name="android:colorError">@color/error</item>
         <item name="android:statusBarColor">@color/primary_dark</item>
-        <item name="android:navigationBarColor">@color/surface</item>
     </style>
 
-    <!-- Alias so the manifest name resolves -->
-    <style name="Theme.SOMEFitnessMethod" parent="Theme.SOMEMethod" />
+    <!-- Optional alias so either name works in manifest -->
+    <style name="Theme.SOMEFitnessMethod" parent="Theme.SOME"/>
 </resources>
+
 
