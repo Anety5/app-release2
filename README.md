@@ -32,9 +32,9 @@ keytool -genkey -v -keystore some-fitness-release.jks \
   -alias some-fitness-key
 
 # Set environment variables
-export SOME_KEYSTORE_FILE="./some-fitness-release.jks"
+export SOME_KEYSTORE_FILE="
 export SOME_KEYSTORE_PASSWORD="your_secure_password"
-export SOME_KEY_ALIAS="some-fitness-key"
+export SOME_KEY_ALIAS
 export SOME_KEY_PASSWORD="your_secure_key_password"
 ```
 
